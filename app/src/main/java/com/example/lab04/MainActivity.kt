@@ -60,46 +60,46 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun EjemploLazyColumn() {
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        DropdownExample()
-        LazyColumn(
-            modifier = Modifier.fillMaxSize(),
-            contentPadding = PaddingValues(16.dp),
-//            verticalArrangement = Arrangement.spacedBy(8.dp)
+    Box(modifier = Modifier.fillMaxSize()) {
+        Column(
+            modifier = Modifier.fillMaxSize()
         ) {
-            items(10) {
-                LazyRow(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    contentPadding = PaddingValues(16.dp)
-                ) {
-                    items(10) { index ->
-                        Card(
-                            modifier = Modifier.size(100.dp),
-                            elevation = CardDefaults.cardElevation(4.dp)
-                        ) {
-                            Box(
-                                modifier = Modifier
-                                    .background(Color.LightGray)
-                                    .fillMaxSize(),
-                                contentAlignment = Alignment.Center
+            DropdownExample()
+            LazyColumn(
+                modifier = Modifier.weight(1f), // Allow LazyColumn to take up most of the space
+                contentPadding = PaddingValues(16.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                items(10) {
+                    LazyRow(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        contentPadding = PaddingValues(16.dp)
+                    ) {
+                        items(10) { index ->
+                            Card(
+                                modifier = Modifier.size(100.dp),
+                                elevation = CardDefaults.cardElevation(4.dp)
                             ) {
-                                MyIconExample(
-                                    text = "Item $index"
-                                )
+                                Box(
+                                    modifier = Modifier
+                                        .background(Color.LightGray)
+                                        .fillMaxSize(),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    MyIconExample(
+                                        text = "Item $index"
+                                    )
+                                }
                             }
                         }
                     }
                 }
             }
         }
+        FAB(modifier = Modifier.align(Alignment.BottomEnd).padding(16.dp))
     }
 }
-
 @Composable
 fun MyIconExample(text: String) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
