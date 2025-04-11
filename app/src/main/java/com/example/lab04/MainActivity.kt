@@ -22,6 +22,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.lab04.ui.theme.Lab04Theme
@@ -32,7 +33,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Lab04Theme {
-
+                EjemploLazyColumn()
             }
         }
     }
@@ -51,16 +52,18 @@ fun EjemploLazyColumn() {
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 contentPadding = PaddingValues(16.dp)
             ) {
-                items(50) { index ->
+                items(10) { index ->
                     Card(
                         modifier = Modifier.size(100.dp),
                         elevation = CardDefaults.cardElevation(4.dp)
                     ) {
                         Box(
-                            modifier = Modifier.background(Color.LightGray),
+                            modifier = Modifier
+                                .background(Color.LightGray)
+                                .fillMaxSize(),
                             contentAlignment = Alignment.Center
                         ) {
-                            Text("Item $index", modifier = Modifier.align(Alignment.Center))
+                            Text("Item $index", textAlign = TextAlign.Center)
                         }
                     }
                 }
