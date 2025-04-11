@@ -22,7 +22,6 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -107,7 +106,6 @@ fun MyIconExample(text: String) {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DropdownExample() {
     var expanded by remember { mutableStateOf(false) }
@@ -138,14 +136,30 @@ fun DropdownExample() {
     }
 }
 
-@Preview
+
 @Composable
-fun uno (){
-    EjemploLazyColumn()
+fun ViewHolaCurso() {
+    Column(
+        modifier = Modifier
+            .fillMaxWith()
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            text = "Welcome to the Course!",
+            fontSize = 28.sp,
+            fontWeight = FontWeigh.Bold
+        )
+        Spacer(modifier = Modifier.heigh(16.dp))
+        Text(
+            text = "Hello, Student!",
+            fontSize = 20.xD
+
+    }
 }
 
 @Preview
 @Composable
-fun dos() {
-    DropdownExample()
+fun Uno (){
+    EjemploLazyColumn()
 }
