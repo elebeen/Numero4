@@ -22,6 +22,7 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.DropdownMenu
@@ -60,13 +61,15 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun EjemploLazyColumn() {
     Column(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         DropdownExample()
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
             contentPadding = PaddingValues(16.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
+//            verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             items(10) {
                 LazyRow(
@@ -117,11 +120,19 @@ fun MyIconExample(text: String) {
 @Composable
 fun DropdownExample() {
     var expanded by remember { mutableStateOf(false) }
-    var selectedOptionText by remember { mutableStateOf("Option 1") }
-    val options = listOf("Option 1", "Option 2", "Option 3")
+    var selectedOptionText by remember { mutableStateOf("¿Eres o no eres?") }
+    val options = listOf("Si soy", "No soy", "No lo se")
 
-    Column(modifier = Modifier.padding(16.dp)) {
-        Button(onClick = { expanded = true }) {
+    Column(
+        modifier = Modifier.padding(16.dp)
+    ) {
+        Button(
+            onClick = { expanded = true },
+            colors = ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.tertiary,
+                contentColor = MaterialTheme.colorScheme.onTertiary
+            )
+        ) {
             Text(selectedOptionText)
         }
 
