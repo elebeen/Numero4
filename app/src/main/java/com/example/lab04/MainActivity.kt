@@ -62,7 +62,8 @@ class MainActivity : ComponentActivity() {
 fun EjemploLazyColumn() {
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             DropdownExample()
             LazyColumn(
