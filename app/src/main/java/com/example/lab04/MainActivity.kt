@@ -108,7 +108,7 @@ fun MyIconExample(text: String) {
         Icon(
             painter = painterResource(id = R.drawable.ic_launcher_foreground),
             contentDescription = "My Custom Icon",
-            modifier = Modifier.size(50.dp) // Adjust size as needed
+            modifier = Modifier.size(40.dp) // Adjust size as needed
         )
         Text(
             text = text,
